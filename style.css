@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+  padding: 1em;
+}
+.container > * {
+  flex: 1;
+}
+
+.card {
+  min-width: 25rem;
+  padding: 0.75em 0.75rem 2em 0.75em;
+
+  border: 1px solid gray;
+  border-radius: 0.4em;
+}
+
+.progress {
+  height: 8px;
+  background-color: lightseagreen;
+  border-radius: 1rem;
+
+  position: relative;
+}
+
+.progress::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-color: gray;
+
+  width: 25px;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  bottom: 50%;
+  transform: translateY(50%);
+  border: 2px solid white;
+}
+
+.progress::after {
+  content: attr(data-progress) "%";
+  color: lightseagreen;
+
+  position: absolute;
+  bottom: -25px;
+  right: 25px;
+
+  font-size: 0.8rem;
+}
